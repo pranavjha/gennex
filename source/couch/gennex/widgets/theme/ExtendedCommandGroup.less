@@ -1,0 +1,71 @@
+/*
+ * ExtendedCommandGroup widget css
+ * classes : 
+ *  - gennexCommandGroupHeader: The main class for the CommandGroup header
+ *  - dragging: The class added to the CommandGroup when it is dragged
+ *  - dropTarget: The class added to the CommandGroup when something valid is dragged over it.
+ *  - gennexCommandGroupElementControl: The class for the element state toggle icon visible on the 
+ *  ExtendedCommandGroup's Header.
+ *  - gennexCommandGroupContentControl: The class for the content state toggle icon visible on the 
+ *  ExtendedCommandGroup's Header.
+ */
+ 
+/*
+ * The default CommandGroup Header class.
+ */
+.gennexCommandGroupHeader {
+    
+    /*
+     * Container for element / content state toggle style
+     */
+	&.orientation-horizontal, &.orientation-vertical {
+	
+	    /*
+	     * Container for element / content state toggle style when orientation is not float
+	     */
+		& > .gennexCommandGroupElementControl, & > .gennexCommandGroupContentControl {
+			// do not show the configuration icons
+			display: none;
+		}
+	}
+}
+
+/*
+ * The Header style when the CommandGroup is dragged.
+ */
+.gennexCommandGroup.dragging > .gennexCommandGroupHeader {
+	.action-button(dragging) !important;
+}
+
+/*
+ * The Header style when something valid is dragged over the CommandGroup.
+ */
+.gennexCommandGroupContainerNode.dropTarget {
+	.action-button (dropTarget);	
+}
+
+/*
+ * The styles common to element state toggle and content state toggle buttons
+ */
+.gennexCommandGroupElementControl, .gennexCommandGroupContentControl {
+	// top [calc value] so that the button align with the header
+	top: (floor((@default-line-height - @small-icon-dimension) / 2));
+	position: absolute;
+	cursor: pointer;
+}
+
+/*
+ * The styles for element state toggle button
+ */
+.gennexCommandGroupElementControl {
+	// element control button should come to the left
+	left: 0;
+}
+
+/*
+ * The styles for content state toggle button
+ */
+.gennexCommandGroupContentControl {
+	// content control button should come to the right
+	right: 0;
+}

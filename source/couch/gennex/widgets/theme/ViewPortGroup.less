@@ -1,0 +1,22 @@
+/*
+ * ViewPortGroup widget css
+ * classes : 
+ *  - gennexViewPortGroup: The base class for the ViewPortGroup
+ *  - horizontal: The base class for the ViewPortGroup with horizontal orientation
+ *  - vertical: The base class for the ViewPortGroup with vertical orientation
+ */
+ 
+ /*
+  * This is the ViewPortGroup widget main class
+  */
+.gennexViewPortGroup {
+	display:flex;
+	flex: 1 1 auto;
+	flex-wrap:no-wrap;
+    &.horizontal {
+        flex-direction: row;
+    }
+    &.vertical {
+        flex-direction: column;
+    }
+}

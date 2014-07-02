@@ -1,0 +1,99 @@
+/*
+ * Header widget css
+ * classes : 
+ *  - gennexHeader: The main class for the Header widget
+ *  - gennexHeaderAppname: The main class for the container where the application name is displayed
+ *  - gennexHeaderLinks: The main class for container where inter-screen navigation links are shown
+ *  - gennexHeaderLoginLinks: The main class for the container where login and logout links along 
+ *  with login details are shown
+ *  - gennexHeaderUserDetails: The main class for the container where user details are displayed
+ */
+ 
+ /*
+  * The main class for the Header widget
+  */
+.gennexHeader {
+	.gradient(header);
+	.box-shadow(header);
+    font-size: 0;
+    flex: 0 0 auto;
+    // the z-index must be below the dialog z-index of 300 but above the context menu z-index of 
+    // 100
+	z-index: 200;
+	
+    /*
+     * The style for all links in header
+     */
+    a {
+        .text-shadow(header);
+        color: @secondary-font-color;
+        text-decoration: none;
+    }
+}
+    
+/*
+ * The style for the application name displayed in header
+ */
+.gennexHeaderAppname {
+	.font(header);
+    font-weight: 800;
+	font-size: @default-font-size;
+	line-height: @default-line-height;
+    display: inline-block;
+	padding: (floor(@default-font-size / 4)) (@default-font-size);
+	vertical-align: top;
+}
+  
+/*
+ * The style for the header screen navigation links container
+ */
+.gennexHeaderLinks {
+	display: inline-block;
+	padding: 0 (ceil(@default-font-size / 2));
+	margin: 0;
+	vertical-align: top;
+	
+  
+	/*
+	 * The style for the header screen navigation links 
+	 */
+	li {
+        font-size: (@default-font-size);
+		display: inline-block;
+		vertical-align: top;
+		margin: 0;
+		padding: (floor(@default-font-size / 4)) (@default-font-size);
+		cursor: pointer;
+		.transition (background , box-shadow);
+	}
+	
+    /*
+     * The header screen navigation links hover and active styles
+     */
+	li:hover , li.active {
+		background: (fade(darken(@primary-font-color, 50%), 60%));
+		box-shadow: 0 0 (ceil(@default-font-size / 2)) (darken(@primary-font-color, 10%));
+	}
+}
+
+/*
+ * The header login links container style
+ */
+.gennexHeaderLoginLinks {
+	background: (fadeout(lighten(@primary-theme-color, 25%),80%));
+	display: inline-block;
+    vertical-align: top;
+    float: right;
+}
+
+
+/*
+ * The header login user details container style
+ */
+.gennexHeaderUserDetails {
+    display:inline-block;
+    font-size: (@default-font-size);
+    vertical-align: top;
+    padding: (floor(@default-font-size / 4)) (@default-font-size);
+}
+

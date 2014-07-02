@@ -1,0 +1,56 @@
+/*
+ * ToolBar widget css
+ * classes : 
+ *  - gennexToolBar: The base class for the ToolBar
+ *  - dropTarget: This class gets added to the ToolBar if an acceptable widget is dragged over it.
+ *  - gennexResizeHandle: The class for the Resize Handle widget inside the ToolBar
+ */
+ 
+ /*
+  * The minimum height or width of the ToolBar
+  */
+ @toolBar-min-dimension: 3px;
+
+ /*
+  * The minimum height or width of the ToolBar when it is hovered
+  */
+ @toolBar-min-hover-dimension: 20px;
+ 
+ /*
+  * The ToolBar base class
+  */
+ .gennexToolBar {
+    .action-button;
+	// make the toolbar a flex child so that it occupies the entire space in its container.
+	flex: 1 1 100%;
+	// set the min width and min height
+	min-width: @toolBar-min-dimension;
+	min-height: @toolBar-min-dimension;
+	cursor: default;
+	border: 1px solid @border-color;
+}
+
+/*
+ * ToolBar hover styles
+ */
+.gennexToolBar:hover {
+	.action-button(focused);
+}
+
+/*
+ * The ToolBar style when an acceptable widget is dragged over it.
+ */
+.gennexToolBar.dropTarget {
+	.action-button(dropTarget);
+	// make the toolbar broader so that drop is convenient
+	min-width: @toolBar-min-hover-dimension;
+	min-height: @toolBar-min-hover-dimension;
+}
+
+/*
+ * Style for ResizeHandle widget when the ToolBar is empty
+ */
+.gennexToolBar:empty+.gennexResizeHandle {
+	// when the ToolBar is empty, do not display the resize handles
+	display:none;
+}

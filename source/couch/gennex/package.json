@@ -1,0 +1,34 @@
+{
+    "name": "gennex",
+    "author": "Pranav Jha <jha.pranav.s@gmail.com>",
+    "description": "gennex is the ui package for Couch (the front facing website for the geNNex application)",
+    "contributors": [
+        {
+            "name": "Pranav Jha",
+            "email": "jha.pranav.s@gmail.com"
+        },
+        {
+            "name": "Vidya Rao",
+            "email": "vidya.d.rao@gmail.com"
+        }
+    ],
+    "repository": {
+        "type": "svn",
+        "url": "https://subversion.assembla.com/svn/gennex/",
+        "path": "trunk/couch/gennex"
+    },
+    "bugs": "https://www.assembla.com/spaces/gennex/tickets",
+    "keywords": [
+        "JavaScript",
+        "Dojo",
+        "3D",
+        "Gennex"
+    ],
+    "dependencies": {
+        "dojo": "~1.9.1",
+        "dijit": "~1.9.1"
+    },
+    "version": "0.0.1",
+    "main": "gennex",
+    "dojoBuild": "gennex.profile.js"
+}

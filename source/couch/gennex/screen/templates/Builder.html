@@ -1,0 +1,57 @@
+<div class="${baseClass}">
+    <header>
+        <div data-dojo-attach-point="northNode" data-dojo-type="gennex/widgets/ToolBar"
+            data-dojo-props="position:'north'"></div>
+        <div data-dojo-type="gennex/widgets/ResizeHandle"
+            data-dojo-props="
+			resizeDirection:'south',
+			constraints : {
+				'min' : 20,
+				'max' : 120,
+				'step' : 20
+			}">
+        </div>
+    </header>
+    <article>
+        <nav>
+            <div data-dojo-attach-point="westNode" data-dojo-type="gennex/widgets/ToolBar"
+                data-dojo-props="position:'west'"></div>
+            <div data-dojo-type="gennex/widgets/ResizeHandle"
+                data-dojo-props="
+				resizeDirection:'east',
+				constraints : {
+					'min' : 20,
+					'max' : 120,
+					'step' : 20
+				}">
+            </div>
+        </nav>
+        <section data-dojo-attach-point="containerNode"></section>
+        <aside>
+            <div data-dojo-attach-point="eastNode" data-dojo-type="gennex/widgets/ToolBar"
+                data-dojo-props="position:'east'"></div>
+            <div data-dojo-type="gennex/widgets/ResizeHandle"
+                data-dojo-props="
+				resizeDirection:'west',
+				constraints : {
+					'min' : 20,
+					'max' : 120,
+					'step' : 20
+				}">
+            </div>
+        </aside>
+    </article>
+    <footer>
+        <div data-dojo-attach-point="southNode" data-dojo-type="gennex/widgets/ToolBar"
+            data-dojo-props="position:'south'"></div>
+        <div data-dojo-type="gennex/widgets/ResizeHandle"
+            data-dojo-props="
+			resizeDirection:'north',
+			constraints : {
+				'min' : 20,
+				'max' : 120,
+				'step' : 20
+			}">
+        </div>
+    </footer>
+</div>

@@ -1,0 +1,126 @@
+<!DOCTYPE project>
+<project name="couch" basedir="." default="deploy">
+    <description>
+		couch is the front facing website for the geNNex application. couch runs on a CouchDB 
+        server along with the database
+    </description>
+
+    <!-- The base build directory. All build is done here -->
+    <property name="buildDir" location="./.build" description="The base build directory. All build 
+        is done here" />
+
+    <!-- Marker to specify the build type. available types are dev and prod. Dev builds are not 
+    layered and the css is not compiled. prod builds are layered compiled and compressed -->
+    <property name="build.env" value="prod" description="Marker to specify the build type. 
+        available types are dev and prod. Dev builds are not layered and the css is not compiled. 
+        prod builds are layered compiled and compressed" />
+
+    <!-- the -conditions target sets the variables build.prod and dojo.unzipped. This build.prod 
+		value will exist only when the deployment is in production or the build.env value is prod. 
+		The dojo.unzipped value checks if the dojo sources have already been unzipped. If the 
+		corresponding unzipped directory is there in the file system, the value will be available 
+		-->
+    <target name="-conditions" description="the -conditions target sets the variables build.prod 
+        and dojo.unzipped. This build.prod value will exist only when the deployment is in 
+        production or the build.env value is prod. The dojo.unzipped value checks if the dojo 
+        sources have already been unzipped. If the corresponding unzipped directory is there in the 
+        file system, the value will be available">
+        <condition property="build.prod">
+            <equals arg1="${build.env}" arg2="prod" />
+        </condition>
+        <available file="${buildDir}/dojo-release-1.9.1-src" property="dojo.unzipped" />
+    </target>
+
+    <!-- the clean target deletes all build files from the workspace -->
+    <target name="clean" description="the clean target deletes all build files from the workspace">
+        <delete dir="${buildDir}" />
+    </target>
+
+    <!-- the clean-couchapp target deletes all couchapp files that were built in the previous build 
+		from the workspace -->
+    <target name="-clean-couchapp" if="build.prod" description="the clean-couchapp target deletes 
+		all couchapp files that were built in the previous build from the workspace">
+        <delete dir="${buildDir}/gennex" />
+    </target>
+
+    <!-- the -unzip-dojo target unzips dojo sources to the build directory -->
+    <target name="-unzip-dojo" depends="-conditions" unless="dojo.unzipped" description="the 
+		-unzip-dojo target unzips dojo sources to the build directory">
+        <unzip dest="${buildDir}" src="../../resources/libraries/dojo/dojo-1.9.1-sources.zip" />
+    </target>
+
+    <!-- the -init-gennex target copies the gennex and dojo sources to the build directory for 
+		javascript and css compilation -->
+    <target name="-init-gennex" description="the -init-gennex target copies the gennex and dojo 
+		sources to the build directory for javascript and css compilation">
+        <mkdir dir="${buildDir}/gennex" description="we create the gennex directory to store the 
+					application to be deployed on couch DB" />
+        <copy todir="${buildDir}/gennex" overwrite="false">
+            <fileset dir="${buildDir}/dojo-release-1.9.1-src">
+                <exclude name="dojox/**" />
+            </fileset>
+            <fileset dir=".">
+                <exclude name=".*/**" />
+                <exclude name=".*" />
+                <exclude name="build.xml" />
+            </fileset>
+        </copy>
+    </target>
+
+    <!-- the -init target sets up the workspace for javascript and css compilation -->
+    <target name="-init" depends="-unzip-dojo, -init-gennex" description="the init target sets up 
+        the workspace for javascript and css compilation" />
+
+    <!-- the compile target compiles the javaScript and css resources and layers them for speed -->
+    <target name="compile" depends="-conditions, -clean-couchapp, -init" if="build.prod" description="the compile target compiles the javaScript and css resources and layers them 
+        for speed">
+        <exec executable="node" dir="${buildDir}/gennex/gennex/themes">
+            <arg value="theme.compiler.js" />
+            <arg value="gennex" />
+        </exec>
+        <java classname="org.mozilla.javascript.tools.shell.Main" fork="true" dir="${buildDir}/gennex">
+            <arg value="dojo/dojo.js" />
+            <arg value="baseUrl=dojo" />
+            <arg value="load=build" />
+            <arg value="profile=build.profile.js" />
+            <arg value="dojoConfig=dojo.config.js" />
+            <arg value="-r" />
+            <classpath>
+                <pathelement location="${buildDir}/gennex/util/shrinksafe/js.jar" />
+                <pathelement location="${buildDir}/gennex/util/shrinksafe/shrinksafe.jar" />
+                <pathelement location="${buildDir}/gennex/util/closureCompiler/compiler.jar" />
+            </classpath>
+        </java>
+        <delete includeemptydirs="true">
+            <fileset dir="${buildDir}/gennex">
+                <include name="dijit/**" />
+                <include name="dojo/**" />
+                <include name="external/**" />
+                <include name="gennex/**" />
+                <include name="util/**" />
+                <include name="build.profile.js" />
+            </fileset>
+        </delete>
+        <move todir="${buildDir}/gennex">
+            <fileset dir="${buildDir}/scripts">
+                <exclude name="build-report.txt" />
+            </fileset>
+            <fileset dir="${buildDir}">
+                <include name="layers/**" />
+            </fileset>
+        </move>
+    </target>
+
+    <!-- the deploy target generates the distribution and deploys it on the CouchDB server. The 
+		application can then be accessed by hitting the url -->
+    <target name="deploy" depends="compile" description="the dist target generates the distribution 
+		and deploys it on the CouchDB server. The application can then be accessed by hitting the 
+		url">
+        <exec executable="erica.cmd" dir="../../resources/libraries/erica">
+            <arg value="push" />
+            <arg value="-v" />
+            <arg value="${buildDir}/gennex" />
+            <arg value="gennex" />
+        </exec>
+    </target>
+</project>

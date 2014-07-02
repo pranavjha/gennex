@@ -1,0 +1,331 @@
+/*
+ * CommandGroup widget css
+ * classes : 
+ *  - gennexCommandGroup: The main class for CommandGroup widget
+ *  - gennexCommandGroupHeaderFocused: This class gets added to the CommandGroup Header when the 
+ *  CommandGroup steals focus
+ *  - gennexCommandGroupHeader: The main class for the CommandGroup Header
+ *  - gennexCommandGroupHeading: The main class for the CommandGroup Heading text inside the Header
+ *  - gennexCommandGroupContainerNode: The main class for the container of the CommandGroup
+ *  - element-expanded: This class gets attached to the CommandGroup, its Header and its Container. 
+ *  It represents the element/expanded state where the entire layout including the widgets inside 
+ *  this CommandGroup is visible
+ *  - element-collapsed: This class gets attached to the CommandGroup, its Header and its Container. 
+ *  It represents the element/collapsed state where only the CommandGroup header is visible. The 
+ *  contents can be seen on focus or mouseover on the CommandGroup
+ *  - orientation-horizontal: This class gets attached to the CommandGroup, its Header and its 
+ *  Container. It represents the orientation/horizontal state where the CommandGroup is displayed 
+ *  horizontally like a MenuBar. The header label is hidden and appears as a drag indicator inline 
+ *  with the body
+ *  - orientation-vertical: This class gets attached to the CommandGroup, its Header and its 
+ *  Container. It represents the orientation/vertical state where the CommandGroup is displayed 
+ *  vertically like a vertical ToolBar. The header label is hidden and appears as a drag indicator 
+ *  above the body
+ *  - orientation-float: This class gets attached to the CommandGroup, its Header and its 
+ *  Container. It represents the orientation/float state where the CommandGroup is displayed with a
+ *  full header and the contents are shown below it.
+ *  - content-smallIconOnly: This class gets attached to the CommandGroup, its Header and its 
+ *  Container. It represents the content/smallIconOnly state where only icons in small dimension 
+ *  are displayed inside the container. Label is displayed on mouseover as a tooltip
+ *  - content-smallIconLabel: This class gets attached to the CommandGroup, its Header and its 
+ *  Container. It represents the content/smallIconLabel state where both icon and label are 
+ *  displayed with icon dimension as small inside the container
+ *  - content-largeIconOnly:  This class gets attached to the CommandGroup, its Header and its 
+ *  Container. It represents the content/largeIconOnly state where only icons in large dimension 
+ *  are displayed inside the container. Label is displayed on mouseover as a tooltip
+ *  - content-largeIconLabel: This class gets attached to the CommandGroup, its Header and its 
+ *  Container. It represents the content/largeIconLabel state where both icon and label are 
+ *  displayed with icon dimension as large inside the container
+ */
+
+/*
+ * The max width for CommandGroup and CommandGroup submenus
+ */
+@commandGroup-orientation-float-max-width: (@large-icon-dimension * 5);
+
+/*
+ * The padding between CommandGroups when they are stacked one after the other
+ */
+@commandGroup-padding: ceil(@default-font-size / 4);
+
+/*
+ * The CommandGroup base class
+ */
+.gennexCommandGroup {
+	// position [relative] so that in collapsed state, the submenu pops out properly
+    .gradient;
+    .box-shadow;
+	position: relative; 
+    line-height: @default-line-height;
+	border: 1px solid @border-color;
+	display: block;
+
+	/*
+	 * The orientation-horizontal and orientation-vertical classes for CommandGroup
+	 */
+	&.orientation-horizontal, &.orientation-vertical {
+		// in horizontal and vertical orientations, the CommandGroup should be displayed without 
+		// any background
+        .box-shadow (none);
+		vertical-align: middle;
+		border: none;
+		background: none;
+	}
+
+    /*
+     * Styles specific to orientation-horizontal class for CommandGroup
+     */
+	&.orientation-horizontal {
+		// put some padding for horizontal orientation CommandGroup so that they don't stick to 
+		// another CommandGroup
+		padding: 0 @commandGroup-padding;
+		// horizontal-orientation should align commandgroups one after the other
+		display: inline-block;
+	}
+
+    /*
+     * Styles specific to orientation-vertical class for CommandGroup
+     */
+	&.orientation-vertical {		
+		// put some padding for vertical orientation CommandGroup so that they don't stick to 
+		// another CommandGroup
+		padding: @commandGroup-padding 0;
+		// vertical-orientation should align commandgroups one below the other
+		display: block;
+	}
+	
+    /*
+     * Styles specific to orientation-float class for CommandGroup
+     */
+	&.orientation-float {
+		max-width: @commandGroup-orientation-float-max-width;
+	}
+}
+
+/*
+ * The CommandGroup Header base class
+ */
+.gennexCommandGroupHeader {
+	// position [relative] helps in positioning the header buttons
+    .action-button;
+	position: relative;
+	white-space: nowrap;
+	font-size: 0;
+	vertical-align: middle;
+	
+    /*
+     * The orientation-float style for the CommandGroup Header
+     */
+	&.orientation-float {
+		// if the orientation of the commandGroup is float, the header must be displayed as a block 
+		// element
+		display: block;
+		margin: 0;
+		padding: 0 @small-icon-dimension;
+		
+	    /*
+	     * The heading style when the CommandGroup is orientation-float.
+	     */		
+		& > .gennexCommandGroupHeading {
+			// hide the overflow and display ellipsis (...) when text overflows. The heading has a 
+			// title attribute which will take cafe of accessibility in that case
+			display: block;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+	}
+	
+    /*
+     * The orientation-vertical style for the CommandGroup Header
+     */
+	&.orientation-vertical {
+	
+	   /*
+	    * The style for the CommandGroup Header with element-expanded and orientation-vertical 
+	    * classes
+	    */
+	   &.element-expanded {
+			// if the element is expanded and the orientation is vertical, the header element 
+			// should be rendered as a block level element with all container elements coming below 
+			// it
+			display: block;
+			border-top: 1px dotted @page-background-color;
+			border-bottom: 1px dotted @page-background-color;
+			height: 1px;
+			margin: 0 10%;
+			
+	       /*
+	        * The style for the CommandGroup Heading when Header has element-expanded and 
+	        * orientation-vertical classes
+	        */
+			& > .gennexCommandGroupHeading {
+			    // when the configurations are element-expanded and orientation-vertical, the 
+			    // heading should not be visible
+				display:none;
+			}
+		}
+    
+        /*
+         * The style for the CommandGroup Header with element-collapsed and orientation-vertical 
+         * classes
+         */
+		&.element-collapsed {
+			// if the element is collapsed the headers should appear inline behaving similar to 
+			// menu buttons
+            .border-radius;
+			display: inline-block;
+			padding: 0 (@commandGroup-padding*2);
+			margin: 0 @commandGroup-padding;
+		}
+	}
+    
+    /*
+     * The orientation-horizontal style for the CommandGroup Header
+     */
+	&.orientation-horizontal {
+	   
+        /*
+         * The style for the CommandGroup Header with element-expanded and orientation-horizontal 
+         * classes
+         */
+		&.element-expanded {
+			// of the element is expanded and the orientation is horizontal, the header should 
+			// appear inline with other elements in the container
+			display: inline-block;
+			border-left: 1px dotted @page-background-color;
+			border-right: 1px dotted @page-background-color;
+			width: 1px;
+			height:@small-icon-dimension;
+			
+	        /*
+	         * The style for the Heading in the CommandGroup with element-expanded and 
+	         * orientation-horizontal states
+	         */
+			& > .gennexCommandGroupHeading {
+                // when the configurations are element-expanded and orientation-horizontal, the 
+                // heading should not be visible
+				display:none;
+			}
+		}
+		     
+        /*
+         * The style for the CommandGroup Header with element-collapsed and orientation-horizontal 
+         * classes
+         */
+		&.element-collapsed {
+			// if the element is collapsed the headers should appear inline behaving similar to 
+			// menu buttons
+            .border-radius;
+			display: inline-block;
+			padding: 0 (@commandGroup-padding*2);
+			margin: 0 @commandGroup-padding;
+		}
+	}
+}
+
+/*
+ * The CommandGroup Heading base class
+ */
+.gennexCommandGroupHeading {
+	// vertical-align [middle] to fix alignment issues when gennexCommandGroupHeader is displayed 
+	// as an inline-block element
+	vertical-align: middle;
+	font-size: @default-font-size;
+}
+
+/*
+ * The CommandGroup Container base class
+ */
+.gennexCommandGroupContainerNode {
+	font-size: 0;
+	display: inline-block;
+	vertical-align: middle;
+	
+    /*
+     * The CommandGroup Container with element-collapsed state
+     */
+	&.element-collapsed {
+		// when the element is collapsed, the container node will be displayed as an absolutely 
+		// positioned menu on hover or focus on the CommandGroup. It should have a padding and 
+		// background in that case
+        .box-shadow;
+        .border-radius;
+        .gradient;
+		padding: (@commandGroup-padding*2);
+		border: 1px solid @border-color;
+		position: absolute;
+		width: @commandGroup-orientation-float-max-width;
+		display: none;
+	}
+
+    /*
+     * The CommandGroup Container with element-expanded state
+     */
+	&.element-expanded {
+		// if the element is expanded, the container node should have no background or shadows
+		.box-shadow (none);
+
+        /*
+         * The CommandGroup Container with element-expanded and orientation-float states
+         */
+     	&.orientation-float {
+			// if the element is expanded and orientation is float, the container should be 
+			// displayed as a block level element
+			padding: (@commandGroup-padding*2);
+			display: block;
+		}
+		
+        /*
+         * The CommandGroup Container with element-expanded and orientation-horizontal states
+         */
+		&.orientation-horizontal {
+			// if the element is expanded and orientation is horizontal, the container should be 
+			// displayed as an inline-block level element
+			display: inline-block;
+			vertical-align : middle;
+
+            /*
+             * The CommandGroup Container with element-expanded and orientation-horizontal states
+             * when it is hovered
+             */			
+			&:hover {
+				.box-shadow (focused);
+			}
+			
+            /*
+             * All child widgets inside the CommandGroup Container with element-expanded and 
+             * orientation-horizontal states
+             */         
+			& > * {
+	            // all commands and command groups inside a commandgroup which is horizontally 
+	            // oriented should be displayed as inline-block
+	            display:inline-block;
+            }
+		}
+        
+        /*
+         * The CommandGroup Container with element-expanded and orientation-vertical states
+         */
+		&.orientation-vertical {
+			// vertical-orientation should align commandgroups one below the other
+			display: block;
+			
+            /*
+             * The CommandGroup Container with element-expanded and orientation-vertical states
+             * when it is hovered
+             */         
+			&:hover {
+				.box-shadow (focused);
+			}
+		}
+	}
+}
+
+/*
+ * This class gets added to the CommandGroupHeader when this CommandGroup steals focus
+ */
+.gennexCommandGroupHeaderFocused, .gennexCommandGroupHeader:hover {
+	// focus and hover effect on the CommandGroup
+	.action-button (focused);
+}
+

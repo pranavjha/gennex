@@ -1,0 +1,33 @@
+{
+    "name": "node",
+    "author": "Pranav Jha <jha.pranav.s@gmail.com>",
+    "description": "node is a utility module for the geNNex application which runs on node js and supports the couch web application.",
+    "contributors": [
+        {
+            "name": "Pranav Jha",
+            "email": "jha.pranav.s@gmail.com"
+        },
+        {
+            "name": "Vidya Rao",
+            "email": "vidya.d.rao@gmail.com"
+        }
+    ],
+    "repository": {
+        "type": "svn",
+        "url": "https://subversion.assembla.com/svn/gennex/",
+        "path": "trunk/source/node"
+    },
+    "bugs": "https://www.assembla.com/spaces/gennex/tickets",
+    "keywords": [
+        "node",
+        "express",
+        "geNNex"
+    ],
+    "dependencies": {
+        "express": "3.4.3"
+    },
+    "version": "0.0.1",
+    "private": true,
+    "main": "./app.js",
+    "launch_path": "/node/"
+}

@@ -1,0 +1,106 @@
+/*
+ * Persona button themes. This entire css is based on CSS-based "Sign in with Persona" buttons by 
+ * Sawyer Hollenshead (http://sawyerhollenshead.com/).
+ */
+
+.persona-button {
+    color: (fade(lighten(@primary-theme-color, 25%), 60%));
+    display: inline-block;
+    vertical-align: top;
+    line-height: ceil(@default-font-size*1.2);
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
+    text-shadow: 0 1px rgba(0,0,0,0.5), 0 0 2px rgba(0,0,0,0.2);
+    background: #287cc2;
+    .transition (background);
+}
+
+.persona-button:hover{
+    background: #21669f;
+}
+
+.persona-button:active, .persona-button:focus {
+    box-shadow: none;
+}
+
+.persona-button span{
+	font-size: @default-font-size;
+    display: inline-block;
+    padding: floor(@default-font-size*.5) floor(@default-font-size*.5) floor(@default-font-size*.5) floor(@default-font-size*3.5);
+}
+
+/* Icon */
+.persona-button span:after{
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAAPCAYAAAA/I0V3AAAA4klEQVR42o2RWaqEMBRE3YaCiDjPwQGcd9CrysLv4wTyoLFD90dxqbp1EgdPRB7Kskznea6Zn/aPoKoqUUrJOI5m4l2QBfSyLHKep1zXZSae3An1fS/7vst931bGkzuhaZrsLVbGkzuheZ7lOI6HyJ2QUkqv6yrbtv0LT+6E7G0UrfBfP3lZlpoXH4ZBmHgn5Pv+KwxDfqp0XQdgJp6c/RsUBIGOokiSJDE/s21bACbe5Ozp0TdAHMdSFIXUdS1N01C2wpObPT36HifwCJzI0iX29Oh7XP0E3CB9L01TzM+i/wePv4ZE5RtAngAAAABJRU5ErkJggg==) 50% 50% no-repeat;
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    top: 0;
+    width: (@default-font-size*2);
+    height: (@default-font-size*2);
+    z-index: 10;
+}
+
+/*  Icon background */
+.persona-button span:before{
+    content: '';
+    display: block;
+    width: (@default-font-size*2);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    background: linear-gradient(to bottom, #50b8e8 0%, #3095ce 100%);
+}
+
+/* Triangle */
+.persona-button:before{
+    background: #42a9dd;
+    content: '';
+    display: block;
+    height: floor(@default-font-size*1.2*1.414);
+    width: floor(@default-font-size*1.2*1.414);
+    position: absolute;
+    left: floor(@default-font-size*(2 - 1.414/2));
+    top: floor(@default-font-size*1.2*(1 - 1.414/2));
+    z-index: 0;
+    background: linear-gradient(-45deg, #3095ce, #50b8e8); /* flipped for updated spec */
+    box-shadow: 1px -1px 1px rgba(0,0,0,0.1);
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+/* Inset shadow (required here because the icon background clips it when on the `a` element) */
+.persona-button:after{
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+    box-shadow: inset 0 -1px 0 rgba(0,0,0,0.3);
+}
+
+/*
+ * Dark button 
+ */
+.persona-button.dark{
+  background: #3c3c3c;
+}
+.persona-button.dark:hover{
+  background: #2d2d2d;
+}
+.persona-button.dark span:before{ /* Icon BG */
+  background: linear-gradient(to bottom, #ebac45 0%, #d34f2d 100%);
+}
+.persona-button.dark:before{ /* Triangle */
+  background: linear-gradient(-45deg, #d34f2d, #ebac45); /* flipped for updated spec */
+}

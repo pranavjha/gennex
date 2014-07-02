@@ -1,0 +1,35 @@
+/*
+ * ContextMenu widget css
+ * classes : 
+ *  - gennexContextMenu: The main class for the ContextMenu widget
+ */
+ 
+/*
+ * the padding around the context menu container
+ */ 
+@contextMenu-padding: (ceil(@default-font-size / 2));
+ 
+/*
+ * the width of the context menu
+ */
+@contextMenu-width: (@large-icon-dimension * 5);
+  
+/*
+ * the z-index of the context menu. This is less than the header z-index (300) and the Dialog 
+ * z-index (200) but more than the rest of the screen element's z-index
+ */
+@contextMenu-zIndex: 100;
+  
+/*
+ * the context menu base class
+ */
+.gennexContextMenu {
+    .box-shadow;
+    .border-radius;
+    .gradient;
+	border: 1px solid @border-color;
+	position: absolute;
+	z-index: @contextMenu-zIndex;
+    padding: @contextMenu-padding;
+	width: @contextMenu-width;
+}

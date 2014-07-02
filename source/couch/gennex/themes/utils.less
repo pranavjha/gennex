@@ -1,0 +1,437 @@
+/*
+ * basic colors used in the application. All of them are derived from the @primary-theme-color 
+ * in the themes less file
+ *  - @page-background-color: the background color of the page;
+ *  - @gradient-start-color: the gradient start color for default state of widgets
+ *  - @gradient-end-color: the gradient end color for default state of widgets
+ *  - @border-color: the default border color for widgets
+ */
+@page-background-color: darken(desaturate(@primary-theme-color, 70%), 20%);
+@border-color: lighten(@primary-theme-color, 25%);
+
+/*
+ * primary state colors used in the application for all stateful widgets.
+ *  - @primary-background-color: the default background color for all stateful widgets
+ *  - @primary-font-color: the default font color for all stateful widgets
+ *  - @primary-box-shadow-color: the default box shadow color for all stateful widgets
+ *  - @primary-text-shadow-color: the default text shadow color for all stateful widgets
+ */
+@primary-background-color: transparent;
+@primary-box-shadow-color: fade(darken(desaturate(@primary-theme-color, 70%), 50%), 50%);
+@primary-text-shadow-color: lighten(@primary-font-color, 50%);
+
+
+/*
+ * secondary state colors used in the application for all stateful widgets.
+ *  - @secondary-background-color: the secondary background color for all stateful widgets
+ *  - @secondary-font-color: the secondary font color for all stateful widgets
+ *  - @secondary-box-shadow-color: the secondary box shadow color for all stateful widgets
+ *  - @secondary-text-shadow-color: the secondary text shadow color for all stateful widgets
+ */
+@secondary-background-color: transparent;
+@secondary-box-shadow-color: fade(darken(desaturate(@secondary-theme-color, 70%), 50%), 50%);
+@secondary-text-shadow-color: darken(@secondary-font-color, 50%);
+
+/*
+ * focused and hover state colors used in the application for all stateful widgets.
+ *  - @focused-background-color: the focused/hover background color for all stateful widgets
+ *  - @focused-font-color: the focused/hover font color for all stateful widgets
+ *  - @focused-box-shadow-color: the focused/hover box shadow color for all stateful widgets
+ *  - @focused-text-shadow-color: the focused/hover text shadow color for all stateful widgets
+ */
+@focused-background-color: lighten(@primary-theme-color, 5%);
+@focused-font-color: darken(@primary-font-color, 25%);
+@focused-box-shadow-color: fade(desaturate(@primary-theme-color, 10%), 50%);
+@focused-text-shadow-color: darken(@primary-text-shadow-color, 20%);
+
+/*
+ * selected state colors used in the application for all stateful widgets.
+ *  - @selected-background-color: the selected background color for all stateful widgets
+ *  - @selected-font-color: the selected font color for all stateful widgets
+ *  - @selected-box-shadow-color: the selected box shadow color for all stateful widgets
+ *  - @selected-text-shadow-color: the selected text shadow color for all stateful widgets
+ */
+@selected-background-color: darken(@primary-theme-color, 5%);
+@selected-font-color: darken(@primary-font-color, 50%);
+@selected-box-shadow-color: fade(darken(desaturate(@primary-theme-color, 30%), 30%), 50%);
+@selected-text-shadow-color: darken(@primary-text-shadow-color, 30%);
+
+/*
+ * dropTarget state colors used in the application for all stateful widgets. A drop target state 
+ * the state of a widget when an acceptable target is dragged over it
+ *  - @selected-background-color: the dropTarget background color for all stateful widgets
+ *  - @selected-font-color: the dropTarget font color for all stateful widgets
+ *  - @selected-box-shadow-color: the dropTarget box shadow color for all stateful widgets
+ *  - @selected-text-shadow-color: the dropTarget text shadow color for all stateful widgets
+ */
+@dropTarget-background-color: lighten(@primary-theme-color, 5%);
+@dropTarget-font-color: darken(@primary-font-color, 50%);
+@dropTarget-box-shadow-color: fade(darken(desaturate(@primary-theme-color, 30%), 30%), 30%);
+@dropTarget-text-shadow-color: darken(@primary-text-shadow-color, 40%);
+
+/*
+ * clear-padding-margin is a utility function to clear the padding and margin
+ */
+.clear-padding-margin () {
+	margin: 0;
+	padding: 0;
+}
+
+/*
+ * The font function is used to set the default font style to classes. This function can be called
+ * with the below parameters (only one):
+ *  - (no parameter): returns the default font style
+ *  - header: returns the header font style
+ */
+.font() {
+    font-family: @default-font;
+    font-size: @default-font-size;
+    line-height: @default-line-height;
+}
+.font(header) {
+    font-family: @header-font;
+    font-size: @header-font-size;
+    font-weight:300;
+    line-height: @header-line-height;
+    color: @secondary-font-color;
+}
+
+/*
+ * The gradient function is used to set the gradient to classes. This function can be called with 
+ * the below parameters (only one):
+ *  - (no parameter): returns the default gradient style
+ *  - header: returns the header gradient style
+ */
+.gradient () {
+    background: linear-gradient(to bottom, lighten(@primary-theme-color, 10%) 0%, @primary-theme-color 100%);
+}
+.gradient (header) {
+    background: linear-gradient(to bottom, lighten(@secondary-theme-color, 20%) 0%, @secondary-theme-color 100%);
+}
+
+/*
+ * The action-button function defines the different states of an action Button. This function 
+ * can be called with the below parameters (only one):
+ *  - (no parameter): returns the default state style for action buttons
+ *  - focused: returns the focused state style for action buttons
+ *  - selected: returns the selected state style for action buttons
+ *  - dragging: returns the dragging state style for action buttons
+ *  - dropTarget: returns the dropTarget state style for action buttons
+ *  - header: returns the header style for action buttons
+ */
+.action-button () {
+	cursor: pointer;
+	background: @primary-background-color;
+	color: @primary-font-color;
+	.text-shadow;
+	.box-shadow(none);
+	.transition (background-color, color, box-shadow);
+}
+.action-button (focused) {
+	background: @focused-background-color;
+	color: @focused-font-color;
+	.text-shadow(focused);
+	.box-shadow(focused);
+}
+.action-button (selected) {
+	background: none;
+	background-color: @selected-background-color;
+	color: @selected-font-color;
+	.text-shadow(selected);
+	.box-shadow(selected);
+}
+.action-button (dragging) {
+	background: none;
+	background-color: @selected-background-color;
+	color: @selected-font-color;
+	.text-shadow(selected);
+	.box-shadow(selected);
+}
+.action-button (dropTarget) {
+    background: none;
+    background-color: @dropTarget-background-color;
+    color: @dropTarget-font-color;
+    .text-shadow(dropTarget);
+    .box-shadow(dropTarget);
+}
+.action-button (header) {
+    background: none;
+    background-color: @secondary-background-color;
+    color: @secondary-font-color;
+    .text-shadow(header);
+    .box-shadow(header);
+}
+
+/*
+ * The box-shadow function defines the box-shadow states. This function can be called with the 
+ * below parameters (only one):
+ *  - (no parameter): returns the default box-shadow
+ *  - focused: returns the focused state box-shadow style
+ *  - selected: returns the selected state box-shadow style
+ *  - dropTarget: returns the dropTarget state box-shadow style
+ *  - header: returns the header state box-shadow style
+ *  - none: gets rid of all box-shadows applied to the element
+ */
+.box-shadow() {
+    box-shadow: 0 0 (ceil(@default-font-size/3)) @primary-box-shadow-color;
+}
+.box-shadow(focused) {
+    box-shadow: (floor(@default-font-size/7)) (floor(@default-font-size/7)) (ceil(@default-font-size/4)) @focused-box-shadow-color inset, 0 0 (ceil(@default-font-size/4)) @primary-box-shadow-color;
+}
+.box-shadow(selected) {
+    box-shadow: (floor(@default-font-size/7)) (floor(@default-font-size/7)) (ceil(@default-font-size/4)) @selected-box-shadow-color inset;
+}
+.box-shadow(dropTarget) {
+    box-shadow: (floor(@default-font-size/7)) (floor(@default-font-size/7)) (ceil(@default-font-size/4)) @dropTarget-box-shadow-color inset, 0 0 (ceil(@default-font-size/4)) @primary-box-shadow-color;
+}
+.box-shadow(header) {
+    box-shadow: 0 0 (ceil(@default-font-size/3)) @secondary-box-shadow-color;
+}
+.box-shadow(none) {
+    box-shadow: none;
+}
+
+/*
+ * The text-shadow function defines the text-shadow states. This function can be called with the 
+ * below parameters (only one):
+ *  - (no parameter): returns the default text-shadow
+ *  - focused: returns the focused state text-shadow style
+ *  - selected: returns the selected state text-shadow style
+ *  - dropTarget: returns the dropTarget state text-shadow style
+ *  - header: returns the header text-shadow style
+ *  - none: gets rid of all text-shadows applied to the element
+ */
+.text-shadow() {
+    text-shadow: 0 (floor(@default-font-size/10)) 0 @primary-text-shadow-color;
+}
+.text-shadow(focused) {
+    text-shadow: 0 (floor(@default-font-size/10)) 0 @focused-text-shadow-color;
+}
+.text-shadow(selected) {
+    text-shadow: 0 (floor(@default-font-size/10)) 0 @selected-text-shadow-color;
+}
+.text-shadow(dropTarget) {
+    text-shadow: 0 0 (floor(@default-font-size/4)) @dropTarget-text-shadow-color;
+}
+.text-shadow(header) {
+    text-shadow: 0 (floor(@default-font-size/10)) 0 @secondary-text-shadow-color;
+}
+.text-shadow(none) {
+    text-shadow: none;
+}
+
+/*
+ * The border-radius function is used to give border radius to the elements. This function 
+ * can be called with the below parameters (only one):
+ *  - (no parameter): gives all corners a border radius
+ *  - top: gives the top corners a border radius leaving the bottom corners unchanged
+ *  - bottom: gives the bottom corners a border radius leaving the top corners unchanged
+ */
+.border-radius () {
+	border-radius: @default-border-radius;
+}
+.border-radius(top) {
+	border-top-left-radius: @default-border-radius;
+	border-top-right-radius: @default-border-radius;
+}
+.border-radius(bottom) {
+	border-bottom-left-radius: @default-border-radius;
+	border-bottom-right-radius: @default-border-radius;
+}
+
+/*
+ * The transition functions are used to add transition to properties.These functions can be called 
+ * with upto four parametres, each parameter a transition property.
+ */
+.transition (@property) {
+	transition: @property @transition-duration;
+}
+.transition (@property1; @property2) {
+	transition: @property1 @transition-duration, @property2 @transition-duration;
+}
+.transition (@property1; @property2; @property3) {
+	transition: @property1 @transition-duration, @property2 @transition-duration, @property3 @transition-duration;
+}
+.transition (@property1; @property2; @property3; @property4) {
+	transition: @property1 @transition-duration, @property2 @transition-duration, @property3 @transition-duration, @property4 @transition-duration;
+}
+
+/*
+ * The unselectable function is used to make an element un-selectable
+ */
+.unselectable(){
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+/*
+ * The large-sprite function is used to add the sprite image with large dimension to an element. 
+ * There are two ways to invoke this function:
+ *  - (no parameters): when invoked without any parameters, this function adds the sprite image as 
+ *  the background image for the element
+ *  - Integer;Integer: when invoked without two integer values (x and y), this function moves the 
+ *  background image in such a way that the image at the xth column and yth row is shown. However, 
+ *  this invocation does not add the sprite image as the background image to the element.
+ */
+.large-sprite() {
+	width: @large-icon-dimension;
+	height: @large-icon-dimension;
+	background: url(@icon-sprite);
+}
+.large-sprite(@x;@y) {
+	background-position: -(@x*@large-icon-dimension) -(@y*@large-icon-dimension) !important;
+}
+
+/*
+ * The small-sprite function is used to add the sprite image with small dimension to an element. 
+ * There are two ways to invoke this function:
+ *  - (no parameters): when invoked without any parameters, this function adds the sprite image as 
+ *  the background image for the element
+ *  - Integer;Integer: when invoked without two integer values (x and y), this function moves the 
+ *  background image in such a way that the image at the xth column and yth row is shown. However, 
+ *  this invocation does not add the sprite image as the background image to the element.
+ */
+.small-sprite() {
+	width: @small-icon-dimension;
+	height: @small-icon-dimension;
+	background: url(@icon-sprite);
+	background-size:(@icon-sprite-width*@small-icon-dimension/@large-icon-dimension);
+}
+.small-sprite(@x;@y) {
+	background-position: -(@x*@small-icon-dimension) -(@y*@small-icon-dimension) !important;
+}
+
+// bootstrap themes for gennex
+
+/*
+ * This style makes sure that none of the focused elements get a dashed outline.
+ */
+:focus {
+	outline: 0;
+}
+
+/*
+ * keyframes definitions for fade-in animations (CSS3)
+ */
+@keyframes fade {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+/*
+ * keyframes definitions for fade-in animations (vendor prefixed)
+ */
+@-webkit-keyframes fade {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+/*
+ * visible class makes an element visible. This class is used in JavaScript to toggle visibility of 
+ * elements.
+ */
+.visible {
+	animation: fade @transition-duration;
+	-webkit-animation: fade @transition-duration;
+	display: block ! important;
+}
+
+/*
+ * hidden class hides an element. This class is used in JavaScript to toggle visibility of elements
+ */
+.hidden {
+	display: none ! important;
+}
+
+/*
+ * normalize the body element by setting its background font styles and clearing off the padding
+ */
+body {
+    background: @page-background-color;
+	.font;
+    .clear-padding-margin;
+}
+
+/*
+ * Styles for the screen container. Here, we make the screen container a flex box occupying the 
+ * entire screen
+ */
+#gennex-screen-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+}
+
+/*
+ * Styles for the button elements.
+ */
+button {
+    .action-button;
+    .border-radius;
+    .font;
+    .gradient;
+    .box-shadow;
+    border: 1px solid @border-color;
+}
+
+/*
+ * Styles for the button elements when they are hovered.
+ */
+button:hover {
+    .action-button(focused);
+}
+
+/*
+ * Styles for the primary button. A primary button is a button to trigger the default or 
+ * recommended action
+ */
+button.primary {
+    .action-button;
+    .border-radius;
+    .gradient(header);
+    .box-shadow(header);
+    .text-shadow(header);
+    color: @secondary-font-color;
+    border: 1px solid @border-color;
+}
+
+/*
+ * Widget theme imports
+ */
+// widget theme
+@import "../widgets/theme/Command.less";
+@import "../widgets/theme/CommandGroup.less";
+@import "../widgets/theme/ContextMenu.less";
+@import "../widgets/theme/Dialog.less";
+@import "../widgets/theme/ExtendedCommandGroup.less";
+@import "../widgets/theme/ResizeHandle.less";
+@import "../widgets/theme/ToolBar.less";
+@import "../widgets/theme/ViewPort.less";
+@import "../widgets/theme/ViewPortGroup.less";
+// common module styles
+@import "../common/theme/Header.less";
+@import "../common/theme/Footer.less";
+// screen css
+@import "../screen/theme/Icons.less";
+@import "../screen/theme/Home.less";
+@import "../screen/theme/Builder.less";
+@import "../screen/theme/Viewer.less";
+// behavioral css
+@import "../behavioral/theme/Persona.less";

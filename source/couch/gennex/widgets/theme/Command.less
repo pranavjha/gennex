@@ -1,0 +1,154 @@
+/*
+ * Command widget css
+ * classes : 
+ *  - gennexCommand: The main class for Command widget 
+ *  - gennexCommandIcon: This class is added to the icons in the Command
+ *  - gennexCommandLabel: This class is added to the label in the Command
+ *  - smallIconOnly: This class is added to the Command itself. It represents a Command state where 
+ *  only icons in small dimension are displayed. Label is displayed on mouseover as a tooltip
+ *  - smallIconLabel: This class is added to the Command itself. It represents a Command state 
+ *  where both icon and label are displayed with icon dimension as small
+ *  - largeIconOnly: This class is added to the Command itself. It represents a Command state 
+ *  where only icons in large dimension are displayed. Label is displayed on mouseover as a tooltip
+ *  - largeIconLabel: This class is added to the Command itself. It represents a Command state 
+ *  where both icon and label are displayed with icon dimension as large
+ *  - selected: This class is added to the Command when it is activated
+ *  - dragging: This class is added to the Command when it is being dragged
+ */
+ 
+/*
+ * The margin around a Command, typically used to have some space between two commands for 
+ * accessibility
+ */
+@command-margin: (floor(@default-font-size/10)); 
+
+/*
+ * The right margin of the text label for the command. Used to prevent text from overlapping the 
+ * Command's right border
+ */
+@command-label-right-margin: (floor(@default-font-size/2)); 
+ 
+/*
+ * The Command base class
+ */
+.gennexCommand {
+    .border-radius;
+    .action-button;
+	// a font size of 0 stops inline-block elements from getting spaced
+	font-size: 0;
+	margin: @command-margin;
+	 
+	/*
+	 * pseudo class for focused Commands
+	 */
+	&:focus {
+		.action-button(focused);
+	}
+
+    /*
+     * class for selected Commands
+     */
+	&.selected {
+		.action-button(selected);
+	}
+
+    /*
+     * class for Commands being dragged
+     */
+	&.dragging {
+		.action-button(dragging);
+	}
+	
+    /*
+     * class for largeIconLabel Command layout
+     */
+	&.largeIconLabel {
+	    // stack commands one below the other
+		display: block;
+		line-height: @large-icon-dimension;
+		
+	    /*
+	     * class for label of a Command with largeIconLabel Command layout
+	     */
+		& > .gennexCommandLabel {
+            // hide the overflow and display ellipsis (...) when text overflows. The title 
+            // attribute will take cafe of accessibility in that case
+            white-space : nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+		    // account for the icon and margin while setting the width. setting the width is 
+		    // important for overflow ellipses
+			width: ~"calc(100% - " (@large-icon-dimension + @command-label-right-margin) ~")";
+            // give the label a margin-right so that the label has some padding with the button 
+            // border
+			margin: 0 @command-label-right-margin 0 0;
+		}
+	}
+
+    /*
+     * class for largeIconOnly Command layout
+     */
+	&.largeIconOnly {
+		.clear-padding-margin;
+		display: inline-block;
+		vertical-align: middle;
+		width: @large-icon-dimension;
+		height: @large-icon-dimension;
+		font-size: 0;
+	}
+
+    /*
+     * class for smallIconLabel Command layout
+     */
+	&.smallIconLabel {
+	    // stack commands one below the other
+		display: block;
+		line-height: @small-icon-dimension;
+				      
+        /*
+         * class for label of a Command with smallIconLabel Command layout
+         */
+		& > .gennexCommandLabel {
+            // hide the overflow and display ellipsis (...) when text overflows. The title 
+            // attribute will take cafe of accessibility in that case
+            white-space : nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            // account for the icon and margin while setting the width. setting the width is 
+            // important for overflow ellipses
+			width: ~"calc(100% - " (@small-icon-dimension + @command-label-right-margin) ~")";
+			// give the label a margin-right so that the label has some padding with the button 
+			// border
+			margin: 0 @command-label-right-margin 0 0;
+		}
+	}
+
+    /*
+     * class for smallIconOnly Command layout
+     */
+	&.smallIconOnly {
+		.clear-padding-margin;
+		display: inline-block;
+		vertical-align: middle;
+		width: @small-icon-dimension;
+		height: @small-icon-dimension;
+		font-size: 0;
+	}
+}
+
+/*
+ * class for the command icon
+ */
+.gennexCommandIcon {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+/*
+ * class for the command label
+ */
+.gennexCommandLabel {
+	display: inline-block;
+	vertical-align: middle;
+	font-size: @default-font-size;
+}

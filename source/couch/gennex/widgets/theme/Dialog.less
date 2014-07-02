@@ -1,0 +1,110 @@
+/*
+ * Dialog widget css
+ * classes : 
+ *  - gennexDialog: The main class for the Dialog widget
+ *  - gennexDialogOverlay: The main class for the Dialog widget overlay
+ *  - gennexDialogTitleBar: The main class for Dialog title bar
+ *  - gennexDialogCloseButton: The main class for Dialog close button
+ *  - gennexDialogBody: The main class for Dialog body
+ *  - gennexDialogFooter: The main class for Dialog footer
+ */
+ 
+/*
+ * The color of the dialog overlay.
+ */
+@dialog-overlay-color: fade(@page-background-color, 50%);
+
+/*
+ * The padding between dialog border and content.
+ */
+@dialog-padding: @default-line-height;
+ 
+/*
+ * The main class for the dialog overlay.
+ */
+.gennexDialogOverlay {
+	// cover the entire screen
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	// a z-index of 300 puts the overlay above header 200
+	z-index: 300; 
+	// show feedback to user
+	cursor: not-allowed;
+	// make the Dialog box align at the center
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    background: @dialog-overlay-color;
+}
+
+/*
+ * The main class for the dialog box.
+ */
+.gennexDialog {
+    .border-radius;
+    .box-shadow;
+    // make the Dialog box align at the center and occupy 50% of screen width
+    flex: 0 0 50%;
+}
+
+/*
+ * The main class for the dialog box title bar.
+ */
+.gennexDialogTitleBar {
+    .gradient(header);
+    .box-shadow(header);
+    .text-shadow(header);
+    .font(header);
+    .border-radius(top);
+    cursor: default;
+    position: relative;
+    padding: 0 @dialog-padding;
+}
+
+/*
+ * The main class for the dialog box close button.
+ */
+.gennexDialogCloseButton {
+    .font;
+    .action-button;
+    .border-radius;
+    .box-shadow;
+	position: absolute;
+	right: ceil(@dialog-padding*.25);
+	top: ceil(@dialog-padding*.25);
+    width: @dialog-padding;
+    height: @dialog-padding;
+    text-align: center;
+    font-weight:bold;
+}
+
+/*
+ * The style on mouse over of the dialog box close button.
+ */
+.gennexDialogCloseButton:hover {
+	.action-button(selected);
+}
+
+/*
+ * The main class for the dialog box body.
+ */
+.gennexDialogBody {
+	.gradient;
+	padding: @dialog-padding;
+}
+
+/*
+ * The main class for the dialog box footer.
+ */
+.gennexDialogFooter {
+	border: 1px solid @border-color;
+    padding: 0 @dialog-padding;
+    .gradient;
+    .border-radius(bottom);
+     min-height: (@default-line-height*1.5);
+    // the buttons in the dialog footer must be right aligned
+     text-align: right;
+}

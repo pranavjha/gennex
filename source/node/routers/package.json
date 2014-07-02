@@ -1,0 +1,30 @@
+{
+    "name": "routers",
+    "author": "Pranav Jha <jha.pranav.s@gmail.com>",
+    "description": "routers is an internal module to node, which helps in routing different requests to different sub modules.",
+    "contributors": [
+        {
+            "name": "Pranav Jha",
+            "email": "jha.pranav.s@gmail.com"
+        },
+        {
+            "name": "Vidya Rao",
+            "email": "vidya.d.rao@gmail.com"
+        }
+    ],
+    "repository": {
+        "type": "svn",
+        "url": "https://subversion.assembla.com/svn/gennex/",
+        "path": "trunk/source/node/routers"
+    },
+    "bugs": "https://www.assembla.com/spaces/gennex/tickets",
+    "keywords": [
+        "node",
+        "routers",
+        "geNNex"
+    ],
+    "version": "0.0.1",
+    "private": true,
+    "main": "./main.js",
+    "launch_path": "/node/"
+}

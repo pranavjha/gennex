@@ -1,0 +1,25 @@
+<header class="${baseClass}">
+    <div class="${baseClass}Appname" data-dojo-attach-point="appName">${messages.app_name}</div>
+    <ul class="${baseClass}Links" data-dojo-attach-point="navigation">
+        <li>
+            <a href="#Home">${messages.link_home}</a>
+        </li>
+        <li>
+            <a href="#Builder">${messages.link_builder}</a>
+        </li>
+        <li>
+            <a href="#Viewer">${messages.link_viewer}</a>
+        </li>
+    </ul>
+    <div class="${baseClass}LoginLinks">
+        <span data-dojo-attach-point="userDetails" class="${baseClass}UserDetails"></span>
+        <a href="#" class="persona-button" data-dojo-attach-point="loginButton"
+            data-dojo-attach-event="onClick:_login">
+            <span>${messages.link_login}</span>
+        </a>
+        <a href="#" class="persona-button dark" data-dojo-attach-point="logoutButton"
+            data-dojo-attach-event="onClick:_logout">
+            <span>${messages.link_logout}</span>
+        </a>
+    </div>
+</header>

@@ -1,0 +1,109 @@
+/*
+ * Builder screen css
+ * classes : 
+ *  - gennexBuilder: The Builder screen main class
+ */
+ 
+ /*
+  * This is the builder screen main class
+  */
+.gennexBuilder {
+	// we make the screen occupy the entire space between header and footer
+	flex: 1 1 auto;
+	// the builder container a flex-box so that the toolbars are aligned properly
+    display: flex;
+    // stack children one below the other
+	flex-direction: column;
+	// stretch to occupy the entire area
+	align-items: stretch;
+	// drag drop selects the content if we don''t do this
+	.unselectable;
+    
+	/*
+	 * Styles for header and footer in builder screen. The header and footer contain ToolBars for 
+	 * the builder
+	 */
+	 & > header, & > footer {
+	    // position should be relative for the resize handler to position itself appropriately
+	    position:relative;
+        flex: 0 0 auto;     
+        // make the container a flexbox so that the toolbar can take up the entire space
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        .box-shadow;
+        .gradient;
+    } 
+    
+    /*
+     * Styles specific to header in builder screen.
+     */
+    & > header {
+        // header should have a z-index more than the footer
+        z-index:40;
+	}
+    
+    /*
+     * Styles specific to footer in builder screen.
+     */
+	& > footer {
+        // footer should have a z-index more than the header
+	    z-index:30;
+	}
+    
+    /*
+     * Styles for article in builder screen. Article is the middle content placeholder for the 
+     * builder screen. It contains a nav, an aside and a section corresponding to the left toolbar, 
+     * right toolbar and viewport respectively
+     */
+	& > article {
+		flex: 1 1 auto;
+		display: flex;
+		flex-direction: row;
+		align-items: stretch;
+		    
+	    /*
+	     * Styles for aside and nav in builder screen middle panel. The aside and nav contain 
+	     * ToolBars for the builder
+	     */
+		& > aside, & > nav {
+	        // position should be relative for the resize handler to position itself appropriately
+		    position:relative;
+            flex: 0 0 auto;
+            // make the container a flexbox so that the toolbar can take up the entire space
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            .box-shadow;
+            .gradient;
+		}
+		          
+        /*
+         * Styles for nav in builder screen middle panel
+         */
+		& > nav {
+            // nav should have a z-index more than aside but less than header and footer
+			z-index:20;
+		}
+            
+        /*
+         * Styles for section in builder screen middle panel. The section contains the 
+         * ViewPortGroup widget
+         */
+		& > section {
+		    // section should occupy all the remaining space
+			flex: 1 1 auto;
+			// make the container a flexbox so that the ViewPortGroup can take up the entire space
+            display: flex;
+		}
+            
+        /*
+         * Styles for aside in builder screen middle panel.
+         */
+		& > aside {
+            // aside should have the least z-index
+	        z-index:10;
+		}
+	}
+}
+

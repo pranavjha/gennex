@@ -1,0 +1,62 @@
+/*
+ * font imports
+ */
+@import url(http://fonts.googleapis.com/css?family=Telex);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,800);
+
+/*
+ * Default font variables used for all non header elements
+ */
+@default-font: 'Telex', sans-serif;
+@default-font-size: 11px;
+@default-line-height: @small-icon-dimension;
+
+/*
+ * Header font variables used for all header elements (dialog title, application title)
+ */
+@header-font: 'Open Sans', sans-serif;
+@header-font-size: ceil(@default-font-size*1.5);
+@header-line-height: ceil(@default-line-height*1.5);
+
+/*
+ * transition duration for all transitions in the application (fade in, fade out, focus etc)
+ */
+@transition-duration: .5s;
+
+/*
+ * sprite icon location and width. This width is used to scale the background for different size 
+ * icons
+ */
+@icon-sprite: "images/command-sprite-gennex.png";
+@icon-sprite-width: 900px;
+
+/*
+ * small and large icon dimensions, these dimensions are used to get display icons size in Commands 
+ * and elsewhere 
+ */
+@large-icon-dimension:30px;
+@small-icon-dimension:20px;
+
+/*
+ * default border radius is used throughout the application as the border radius for widget styles
+ */
+@default-border-radius: (ceil(@default-font-size/2));
+
+/*
+ * The below variables define the base theme colors for the application. Modifying these colors 
+ * will modify the entire look and feel of the application
+ *  - @primary-font-color: used as the body font color for the entire application
+ *  - @primary-theme-color: used as the default background and gradient tint for the entire 
+ *  application
+ *  - @secondary-theme-color: used as the active background and gradient tint for the entire 
+ *  application
+ */
+@primary-font-color:#555555;
+@primary-theme-color: #a9d3ff;
+@secondary-font-color:#ffffff;
+@secondary-theme-color: #1b7ba8;
+
+/*
+ * util file import makes sure that all less files for different widgets are included
+ */
+@import "utils.less";

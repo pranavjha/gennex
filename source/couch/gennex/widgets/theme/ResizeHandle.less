@@ -1,0 +1,146 @@
+/*
+ * ResizeHandle widget css
+ * classes : 
+ *  - gennexResizeHandle: The main class for ResizeHandle widget
+ *  - east: This class is added to the ResizeHandle when it is handling resizes in the east 
+ *  direction
+ *  - west: This class is added to the ResizeHandle when it is handling resizes in the west 
+ *  direction
+ *  - north: This class is added to the ResizeHandle when it is handling resizes in the north 
+ *  direction
+ *  - south: This class is added to the ResizeHandle when it is handling resizes in the south 
+ *  direction
+ */
+ 
+/*
+ * the top, bottom, right or left margin after which the resize handles should be shown
+ */
+@resizeHandler-avatar-margin: 35%;
+
+/*
+ * the active resize area width
+ */
+@resizeHandler-active-width: 3px;
+ 
+/*
+ * the active indicator width
+ */
+@resizeHandler-indicator-width: 1px;
+
+/*
+ * the active indicator style. can be dotted, dashed, solid
+ */
+@resizeHandler-indicator-style: dotted;
+ 
+/*
+ * The resize handler base class
+ */
+.gennexResizeHandle {
+	// to cover the entire area available
+	position: absolute;
+	
+	/*
+	 * common style for the resize handler's handle. The handlers have default background border 
+	 * color when inactive
+	 */
+	& > div {
+        .transition (border-color);
+		border-style: @resizeHandler-indicator-style;
+		border-color: @primary-background-color;
+	}
+		
+	/*
+	 * common style for the resize handler's handle when hovered. The handlers have a border 
+	 * color same as the default font color when active
+	 */
+	&:hover > div {
+		border-color: @primary-font-color;
+	}
+	
+	/*
+	 * east and west handler's width and height styles
+	 */
+	&.east , &.west {
+		// east and west resize handlers must be as tall as the container
+		top: 0;
+		bottom: 0;
+		// width to accomodate the resize sprite
+		width: @resizeHandler-active-width;
+
+		/*
+		 * east and west handler's handle dimensions and layout
+		 */
+		& > div {
+			position: absolute;
+			top: @resizeHandler-avatar-margin;
+			bottom: @resizeHandler-avatar-margin;
+			// to position the handle exactly at the center of the widget
+			left: ((@resizeHandler-active-width - @resizeHandler-indicator-width)/2);
+			border-width: 0 @resizeHandler-indicator-width 0 0;
+		}
+	}
+
+	/*
+	 * north and south handler's width and height styles
+	 */
+	&.north , &.south {
+		// north and south resize handlers must be as wide as the container
+		left: 0;
+		right: 0;
+		// height to accomodate the resize sprite
+		height: @resizeHandler-active-width;
+
+		/*
+		 * north and south handler's handle dimensions and layout
+		 */
+		& > div {
+			position: absolute;
+			left: @resizeHandler-avatar-margin;
+			right: @resizeHandler-avatar-margin;
+			// to position the handle exactly at the middle of the widget
+			top: ((@resizeHandler-active-width - @resizeHandler-indicator-width)/2);
+			border-width: 0 0 @resizeHandler-indicator-width 0;
+		}
+	}
+	
+	/*
+	 * east resize handler
+	 */
+	&.east {
+		// east resize handler must appear to the right
+		right: 0;
+		// show the east resize cursor
+		cursor: e-resize;
+	}
+
+	/*
+	 * west resize handler
+	 */
+	&.west {
+		// west resize handler must appear to the left
+		left: 0;
+		// show the west resize cursor
+		cursor: w-resize;
+	}
+
+	/*
+	 * north resize handler
+	 */
+	&.north {
+		// north resize handler must appear at the top
+		top: 0;
+		// show the north resize cursor
+		cursor: n-resize;
+	}
+
+	/*
+	 * south resize handler
+	 */
+	&.south {
+		// south resize handler must appear at the bottom
+		bottom: 0;
+		// show the south resize cursor
+		cursor: s-resize;
+	}
+}
+

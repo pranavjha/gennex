@@ -1,0 +1,885 @@
+{
+    "type": "screen-configuration",
+    "name": "default",
+    "value": [
+        {
+            "_storeId": "../screen/Home",
+            "type": "../screen/Home",
+            "childConstruct": []
+        },
+        {
+            "_storeId": "../screen/Viewer",
+            "type": "../screen/Viewer",
+            "childConstruct": []
+        },
+        {
+            "_storeId": "../screen/Builder",
+            "type": "../screen/Builder",
+            "childConstruct": [
+                {
+                    "type": "../widgets/ViewPortGroup",
+                    "layout": "horizontal",
+                    "childConstruct": [
+                        {
+                            "type": "../widgets/ViewPort",
+                            "cameraProps": {}
+                        },
+                        {
+                            "type": "../widgets/ViewPortGroup",
+                            "layout": "vertical",
+                            "childConstruct": [
+                                {
+                                    "type": "../widgets/ViewPortGroup",
+                                    "layout": "horizontal",
+                                    "childConstruct": [
+                                        {
+                                            "type": "../widgets/ViewPort",
+                                            "cameraProps": {}
+                                        },
+                                        {
+                                            "type": "../widgets/ViewPort",
+                                            "cameraProps": {}
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "../widgets/ViewPort",
+                                    "cameraProps": {}
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "../behavioral/RadioGroup",
+                    "value": "create",
+                    "toggle": false
+                },
+                {
+                    "type": "../widgets/ExtendedCommandGroup",
+                    "label": "menubar",
+                    "targetNode": "northNode",
+                    "currentState": {
+                        "element": "expanded",
+                        "content": "smallIconLabel"
+                    },
+                    "childConstruct": [
+                        {
+                            "type": "../widgets/ExtendedCommandGroup",
+                            "label": "3D Create",
+                            "childConstruct": [
+                                {
+                                    "type": "../widgets/ExtendedCommandGroup",
+                                    "label": "Basic Objects",
+                                    "childConstruct": [
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Cylinder",
+                                            "spriteClass": "create-cylinder",
+                                            "value": "cylinder",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Cube",
+                                            "spriteClass": "create-cube",
+                                            "value": "cube",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Sphere",
+                                            "spriteClass": "create-sphere",
+                                            "value": "sphere",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Sphere (Isometric)",
+                                            "spriteClass": "create-isosphere",
+                                            "value": "isosphere",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Torus",
+                                            "spriteClass": "create-torus",
+                                            "value": "torus",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Plane",
+                                            "spriteClass": "create-plane",
+                                            "value": "plane",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Teapot",
+                                            "spriteClass": "create-teapot",
+                                            "value": "teapot",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Cone",
+                                            "spriteClass": "create-cone",
+                                            "value": "cone",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Pyramid",
+                                            "spriteClass": "create-pyramid",
+                                            "value": "pyramid",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Cylinder",
+                                            "spriteClass": "create-cylinder",
+                                            "value": "cylinder",
+                                            "group": "create"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "../widgets/ExtendedCommandGroup",
+                                    "label": "Complicated Objects",
+                                    "childConstruct": [
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Cylinder",
+                                            "spriteClass": "create-cylinder",
+                                            "value": "cylinder",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Cube",
+                                            "spriteClass": "create-cube",
+                                            "value": "cube",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Sphere",
+                                            "spriteClass": "create-sphere",
+                                            "value": "sphere",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Sphere (Isometric)",
+                                            "spriteClass": "create-isosphere",
+                                            "value": "isosphere",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Torus",
+                                            "spriteClass": "create-torus",
+                                            "value": "torus",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Plane",
+                                            "spriteClass": "create-plane",
+                                            "value": "plane",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Teapot",
+                                            "spriteClass": "create-teapot",
+                                            "value": "teapot",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Cone",
+                                            "spriteClass": "create-cone",
+                                            "value": "cone",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Pyramid",
+                                            "spriteClass": "create-pyramid",
+                                            "value": "pyramid",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Cylinder",
+                                            "spriteClass": "create-cylinder",
+                                            "value": "cylinder",
+                                            "group": "create"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "../widgets/ExtendedCommandGroup",
+                            "label": "2D Create",
+                            "childConstruct": [
+                                {
+                                    "type": "../widgets/ExtendedCommandGroup",
+                                    "label": "Basic Objects",
+                                    "childConstruct": [
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Cylinder",
+                                            "spriteClass": "create-cylinder",
+                                            "value": "cylinder",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Cube",
+                                            "spriteClass": "create-cube",
+                                            "value": "cube",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Sphere",
+                                            "spriteClass": "create-sphere",
+                                            "value": "sphere",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Sphere (Isometric)",
+                                            "spriteClass": "create-isosphere",
+                                            "value": "isosphere",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Torus",
+                                            "spriteClass": "create-torus",
+                                            "value": "torus",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Plane",
+                                            "spriteClass": "create-plane",
+                                            "value": "plane",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Teapot",
+                                            "spriteClass": "create-teapot",
+                                            "value": "teapot",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Cone",
+                                            "spriteClass": "create-cone",
+                                            "value": "cone",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Pyramid",
+                                            "spriteClass": "create-pyramid",
+                                            "value": "pyramid",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Cylinder",
+                                            "spriteClass": "create-cylinder",
+                                            "value": "cylinder",
+                                            "group": "create"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "../widgets/ExtendedCommandGroup",
+                            "label": "Lights &amp; Camera",
+                            "childConstruct": [
+                                {
+                                    "type": "../widgets/ExtendedCommandGroup",
+                                    "label": "Basic Objects",
+                                    "childConstruct": [
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Cylinder",
+                                            "spriteClass": "create-cylinder",
+                                            "value": "cylinder",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Cube",
+                                            "spriteClass": "create-cube",
+                                            "value": "cube",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Sphere",
+                                            "spriteClass": "create-sphere",
+                                            "value": "sphere",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Sphere (Isometric)",
+                                            "spriteClass": "create-isosphere",
+                                            "value": "isosphere",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Torus",
+                                            "spriteClass": "create-torus",
+                                            "value": "torus",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Plane",
+                                            "spriteClass": "create-plane",
+                                            "value": "plane",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Teapot",
+                                            "spriteClass": "create-teapot",
+                                            "value": "teapot",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Cone",
+                                            "spriteClass": "create-cone",
+                                            "value": "cone",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Pyramid",
+                                            "spriteClass": "create-pyramid",
+                                            "value": "pyramid",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Cylinder",
+                                            "spriteClass": "create-cylinder",
+                                            "value": "cylinder",
+                                            "group": "create"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "../widgets/ExtendedCommandGroup",
+                            "label": "Object Deform",
+                            "childConstruct": [
+                                {
+                                    "type": "../widgets/ExtendedCommandGroup",
+                                    "label": "Basic Objects",
+                                    "childConstruct": [
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Cylinder",
+                                            "spriteClass": "create-cylinder",
+                                            "value": "cylinder",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Cube",
+                                            "spriteClass": "create-cube",
+                                            "value": "cube",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Sphere",
+                                            "spriteClass": "create-sphere",
+                                            "value": "sphere",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Sphere (Isometric)",
+                                            "spriteClass": "create-isosphere",
+                                            "value": "isosphere",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Torus",
+                                            "spriteClass": "create-torus",
+                                            "value": "torus",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Plane",
+                                            "spriteClass": "create-plane",
+                                            "value": "plane",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Teapot",
+                                            "spriteClass": "create-teapot",
+                                            "value": "teapot",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Cone",
+                                            "spriteClass": "create-cone",
+                                            "value": "cone",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Pyramid",
+                                            "spriteClass": "create-pyramid",
+                                            "value": "pyramid",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Cylinder",
+                                            "spriteClass": "create-cylinder",
+                                            "value": "cylinder",
+                                            "group": "create"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "../widgets/ExtendedCommandGroup",
+                            "label": "Modelling",
+                            "childConstruct": [
+                                {
+                                    "type": "../widgets/ExtendedCommandGroup",
+                                    "label": "Basic Objects",
+                                    "childConstruct": [
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Cylinder",
+                                            "spriteClass": "create-cylinder",
+                                            "value": "cylinder",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Cube",
+                                            "spriteClass": "create-cube",
+                                            "value": "cube",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Sphere",
+                                            "spriteClass": "create-sphere",
+                                            "value": "sphere",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Sphere (Isometric)",
+                                            "spriteClass": "create-isosphere",
+                                            "value": "isosphere",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Torus",
+                                            "spriteClass": "create-torus",
+                                            "value": "torus",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Plane",
+                                            "spriteClass": "create-plane",
+                                            "value": "plane",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Teapot",
+                                            "spriteClass": "create-teapot",
+                                            "value": "teapot",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Cone",
+                                            "spriteClass": "create-cone",
+                                            "value": "cone",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Pyramid",
+                                            "spriteClass": "create-pyramid",
+                                            "value": "pyramid",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Cylinder",
+                                            "spriteClass": "create-cylinder",
+                                            "value": "cylinder",
+                                            "group": "create"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "../widgets/ExtendedCommandGroup",
+                            "label": "Animation",
+                            "childConstruct": [
+                                {
+                                    "type": "../widgets/ExtendedCommandGroup",
+                                    "label": "Basic Objects",
+                                    "childConstruct": [
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Cylinder",
+                                            "spriteClass": "create-cylinder",
+                                            "value": "cylinder",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Cube",
+                                            "spriteClass": "create-cube",
+                                            "value": "cube",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Sphere",
+                                            "spriteClass": "create-sphere",
+                                            "value": "sphere",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Sphere (Isometric)",
+                                            "spriteClass": "create-isosphere",
+                                            "value": "isosphere",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Torus",
+                                            "spriteClass": "create-torus",
+                                            "value": "torus",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Plane",
+                                            "spriteClass": "create-plane",
+                                            "value": "plane",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Teapot",
+                                            "spriteClass": "create-teapot",
+                                            "value": "teapot",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Cone",
+                                            "spriteClass": "create-cone",
+                                            "value": "cone",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Pyramid",
+                                            "spriteClass": "create-pyramid",
+                                            "value": "pyramid",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Cylinder",
+                                            "spriteClass": "create-cylinder",
+                                            "value": "cylinder",
+                                            "group": "create"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "../widgets/ExtendedCommandGroup",
+                            "label": "Cloning",
+                            "childConstruct": [
+                                {
+                                    "type": "../widgets/ExtendedCommandGroup",
+                                    "label": "Basic Objects",
+                                    "childConstruct": [
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Cylinder",
+                                            "spriteClass": "create-cylinder",
+                                            "value": "cylinder",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Cube",
+                                            "spriteClass": "create-cube",
+                                            "value": "cube",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Sphere",
+                                            "spriteClass": "create-sphere",
+                                            "value": "sphere",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Sphere (Isometric)",
+                                            "spriteClass": "create-isosphere",
+                                            "value": "isosphere",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Torus",
+                                            "spriteClass": "create-torus",
+                                            "value": "torus",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Plane",
+                                            "spriteClass": "create-plane",
+                                            "value": "plane",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Teapot",
+                                            "spriteClass": "create-teapot",
+                                            "value": "teapot",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Cone",
+                                            "spriteClass": "create-cone",
+                                            "value": "cone",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Pyramid",
+                                            "spriteClass": "create-pyramid",
+                                            "value": "pyramid",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Cylinder",
+                                            "spriteClass": "create-cylinder",
+                                            "value": "cylinder",
+                                            "group": "create"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "../widgets/ExtendedCommandGroup",
+                            "label": "Materials",
+                            "childConstruct": [
+                                {
+                                    "type": "../widgets/ExtendedCommandGroup",
+                                    "label": "Basic Objects",
+                                    "childConstruct": [
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Cylinder",
+                                            "spriteClass": "create-cylinder",
+                                            "value": "cylinder",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Cube",
+                                            "spriteClass": "create-cube",
+                                            "value": "cube",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Sphere",
+                                            "spriteClass": "create-sphere",
+                                            "value": "sphere",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Sphere (Isometric)",
+                                            "spriteClass": "create-isosphere",
+                                            "value": "isosphere",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Torus",
+                                            "spriteClass": "create-torus",
+                                            "value": "torus",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Plane",
+                                            "spriteClass": "create-plane",
+                                            "value": "plane",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Teapot",
+                                            "spriteClass": "create-teapot",
+                                            "value": "teapot",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Cone",
+                                            "spriteClass": "create-cone",
+                                            "value": "cone",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Pyramid",
+                                            "spriteClass": "create-pyramid",
+                                            "value": "pyramid",
+                                            "group": "create"
+                                        },
+                                        {
+                                            "type": "../widgets/Command",
+                                            "label": "Cylinder",
+                                            "spriteClass": "create-cylinder",
+                                            "value": "cylinder",
+                                            "group": "create"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "../widgets/ExtendedCommandGroup",
+                    "label": "Actions",
+                    "targetNode": "southNode",
+                    "currentState": {
+                        "element": "expanded",
+                        "content": "smallIconLabel"
+                    },
+                    "childConstruct": [
+                        {
+                            "type": "../widgets/Command",
+                            "label": "Cylinder",
+                            "spriteClass": "create-cylinder",
+                            "value": "cylinder",
+                            "group": "create"
+                        },
+                        {
+                            "type": "../widgets/Command",
+                            "label": "Cube",
+                            "spriteClass": "create-cube",
+                            "value": "cube",
+                            "group": "create"
+                        },
+                        {
+                            "type": "../widgets/Command",
+                            "label": "Sphere",
+                            "spriteClass": "create-sphere",
+                            "value": "sphere",
+                            "group": "create"
+                        },
+                        {
+                            "type": "../widgets/Command",
+                            "label": "Sphere (Isometric)",
+                            "spriteClass": "create-isosphere",
+                            "value": "isosphere",
+                            "group": "create"
+                        },
+                        {
+                            "type": "../widgets/Command",
+                            "label": "Torus",
+                            "spriteClass": "create-torus",
+                            "value": "torus",
+                            "group": "create"
+                        },
+                        {
+                            "type": "../widgets/Command",
+                            "label": "Plane",
+                            "spriteClass": "create-plane",
+                            "value": "plane",
+                            "group": "create"
+                        },
+                        {
+                            "type": "../widgets/Command",
+                            "label": "Teapot",
+                            "spriteClass": "create-teapot",
+                            "value": "teapot",
+                            "group": "create"
+                        },
+                        {
+                            "type": "../widgets/Command",
+                            "label": "Cone",
+                            "spriteClass": "create-cone",
+                            "value": "cone",
+                            "group": "create"
+                        },
+                        {
+                            "type": "../widgets/Command",
+                            "label": "Pyramid",
+                            "spriteClass": "create-pyramid",
+                            "value": "pyramid",
+                            "group": "create"
+                        },
+                        {
+                            "type": "../widgets/Command",
+                            "label": "Cylinder",
+                            "spriteClass": "create-cylinder",
+                            "value": "cylinder",
+                            "group": "create"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

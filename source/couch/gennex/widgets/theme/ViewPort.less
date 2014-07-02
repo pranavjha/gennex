@@ -1,0 +1,25 @@
+/*
+ * ViewPort widget css
+ * classes : 
+ *  - gennexViewPort: The base class for the ViewPort
+ */
+ 
+ /*
+  * This is the ViewPort widget main class
+  */
+.gennexViewPort {
+   overflow:hidden;
+   flex: 1 1 auto;
+   border:1px solid #000000;
+   position:relative;
+}
+ 
+ /*
+  * the canvas inside the viewport must be positioned absolutely so that they don't have any impact 
+  * on the flex display of ViewPort
+  */
+.gennexViewPort canvas {
+	position:absolute;
+	top:0;
+	left:0;
+}

@@ -1,0 +1,96 @@
+<div
+    class="${baseClass} orientation-${currentState.orientation} element-${currentState.element} content-${currentState.content}"
+    draggable="true">
+    <div data-dojo-attach-point="headerNode"
+        data-dojo-attach-event="mouseOver:_activateCommandGroup"
+        class="${baseClass}Header orientation-${currentState.orientation} element-${currentState.element} content-${currentState.content}"
+        title="${label}">
+        <span data-dojo-attach-point="elementControl"
+            data-dojo-attach-event="click:_toggleElementState"
+            class="${baseClass}ElementControl iconSmall element-${currentState.element}"></span>
+        <span class="${baseClass}Heading">${label}</span>
+        <span data-dojo-attach-point="contentControl"
+            data-dojo-attach-event="click:_toggleContentState"
+            class="${baseClass}ContentControl iconSmall content-${currentState.content}"></span>
+    </div>
+    <div data-dojo-attach-point="containerNode"
+        class="${baseClass}ContainerNode orientation-${currentState.orientation} element-${currentState.element} content-${currentState.content}"></div>
+    <div data-dojo-type="gennex/widgets/ContextMenu"
+        data-dojo-props="childConstruct : [
+				{
+					type : '../behavioral/RadioGroup',
+					value : 'content',
+					toggle : false
+
+				},
+				{
+					type : '../behavioral/RadioGroup',
+					value : 'element',
+					toggle : false
+
+				},
+				{
+					type : '../widgets/CommandGroup',
+					label : 'Layout',
+					currentState : {
+						element : 'expanded',
+						content : 'smallIconLabel'
+					},
+					childConstruct : [
+							{
+								type : '../widgets/Command',
+								label : 'Small Icon(s) Only',
+								spriteClass : 'content-smallIconOnly',
+								value : 'smallIconOnly',
+								group : 'content'
+							},
+							{
+								type : '../widgets/Command',
+								label : 'Small Icon(s) + Label',
+								spriteClass : 'content-smallIconLabel',
+								value : 'smallIconLabel',
+								group : 'content'
+							},
+							{
+								type : '../widgets/Command',
+								label : 'Large Icon(s) Only',
+								spriteClass : 'content-largeIconOnly',
+								value : 'largeIconOnly',
+								group : 'content'
+							},
+							{
+								type : '../widgets/Command',
+								label : 'Large Icon(s) + Label',
+								spriteClass : 'content-largeIconLabel',
+								value : 'largeIconLabel',
+								group : 'content'
+							}
+					]
+				},
+				{
+					type : '../widgets/CommandGroup',
+					label : 'Element',
+					currentState : {
+						element : 'expanded',
+						content : 'smallIconLabel'
+					},
+					childConstruct : [
+							{
+								type : '../widgets/Command',
+								label : 'Expanded',
+								spriteClass : 'element-collapsed',
+								value : 'expanded',
+								group : 'element'
+							},
+							{
+								type : '../widgets/Command',
+								label : 'Collapsed',
+								spriteClass : 'element-expanded',
+								value : 'collapsed',
+								group : 'element'
+							}
+					]
+				}
+		]"
+        data-dojo-attach-event="action:_contextAction, beforeShow:_beforeContextShow"></div>
+</div>

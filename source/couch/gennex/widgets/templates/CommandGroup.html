@@ -1,0 +1,11 @@
+<div
+    class="${baseClass} orientation-${currentState.orientation} element-${currentState.element} content-${currentState.content}">
+    <div data-dojo-attach-point="headerNode"
+        data-dojo-attach-event="mouseOver:_activateCommandGroup"
+        class="${baseClass}Header orientation-${currentState.orientation} element-${currentState.element} content-${currentState.content}"
+        title="${label}">
+        <span class="${baseClass}Heading">${label}</span>
+    </div>
+    <div data-dojo-attach-point="containerNode"
+        class="${baseClass}ContainerNode orientation-${currentState.orientation} element-${currentState.element} content-${currentState.content}"></div>
+</div>

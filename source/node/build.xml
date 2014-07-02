@@ -1,0 +1,52 @@
+<!DOCTYPE project>
+<project name="node" basedir="." default="deploy">
+    <description>
+        node is a utility module for the geNNex application which runs on node js and supports the 
+        couch web application.
+    </description>
+
+    <!-- Marker to specify the build type. available types are dev and prod. in dev build, the node 
+        server is restarted every time a file changes. In the prod build, once the deploy target is 
+        invoked, the node server does not watch for changes in js files -->
+    <property name="build.env" value="prod" description="Marker to specify the build type. 
+        Available types are dev and prod. in dev build, the node server is restarted every time a 
+        file changes. In the prod build, once the deploy target is invoked, the node server does 
+        not watch for changes in js files" />
+
+    <!-- the -conditions target sets the variable node.app. This node.app value will be set to app 
+        when the build mode is prod, when the build is a dev build, this value will be app_dev. 
+        node.app is later used to specify the build file used for running the app-->
+    <target name="-conditions" description="the -conditions target sets the variable node.app. 
+        This node.app value will be set to app when the build mode is prod, when the build is a dev 
+        build, this value will be app_dev. node.app is later used to specify the build file used 
+        for running the app">
+        <condition property="node.app" value="app">
+            <equals arg1="${build.env}" arg2="prod" />
+        </condition>
+        <condition property="node.app" value="app_dev">
+            <equals arg1="${build.env}" arg2="dev" />
+        </condition>
+    </target>
+
+    <!-- the clean target deletes all build files from the workspace -->
+    <target name="clean" description="the clean target deletes all build files from the workspace">
+        <delete dir="node_modules" />
+    </target>
+
+    <!-- the init target installs all node dependencies into the node application -->
+    <target name="init" description="the init target installs all node dependencies into the node 
+        application">
+        <exec executable="npm" dir=".">
+            <arg value="install" />
+        </exec>
+    </target>
+
+    <!-- the deploy target deploys the node application into the node js server. The application 
+     can then be accessed by hitting the url -->
+    <target name="deploy" depends="-conditions" description="the deploy target deploys the node application into the node js server. The 
+        application can then be accessed by hitting the url">
+        <exec executable="node" dir=".">
+            <arg value="${node.app}" />
+        </exec>
+    </target>
+</project>

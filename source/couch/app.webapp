@@ -1,0 +1,45 @@
+{
+    "name": "couch",
+    "author": "Pranav Jha <jha.pranav.s@gmail.com>",
+    "description": "couch is the front facing website for the geNNex application. couch runs on a CouchDB server along with the database",
+    "contributors": [
+        {
+            "name": "Pranav Jha",
+            "email": "jha.pranav.s@gmail.com"
+        },
+        {
+            "name": "Vidya Rao",
+            "email": "vidya.d.rao@gmail.com"
+        }
+    ],
+    "repository": {
+        "type": "svn",
+        "url": "https://subversion.assembla.com/svn/gennex/",
+        "path": "trunk/couch/gennex"
+    },
+    "bugs": "https://www.assembla.com/spaces/gennex/tickets",
+    "keywords": [
+        "JavaScript",
+        "Dojo",
+        "3D",
+        "Gennex",
+        "3D modelling",
+        "3D viewer",
+        "collaboration"
+    ],
+    "launch_path": "/",
+    "icons": {
+        "16": "assets/promo/icon_16.png",
+        "48": "assets/promo/icon_48.png",
+        "96": "assets/promo/icon_96.png",
+        "128": "assets/promo/icon_128.png"
+    },
+    "promo_images": {
+        "small": "assets/promo/promo_small.png"
+    },
+    "screenshots": [
+        "assets/promo/screenshot1.png"
+    ],
+    "default_locale": "en",
+    "version": "0.0.1"
+}

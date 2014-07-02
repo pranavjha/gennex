@@ -1,0 +1,10 @@
+<div class="${baseClass}Overlay hidden">
+    <div class="${baseClass}">
+        <div class="${baseClass}TitleBar">
+            <div data-dojo-attach-point="titleNode">${dialogHeading}</div>
+            <div class="${baseClass}CloseButton" data-dojo-attach-event="onClick:hide">x</div>
+        </div>
+        <div class="${baseClass}Body" data-dojo-attach-point="containerNode">${body}</div>
+        <div class="${baseClass}Footer" data-dojo-attach-point="footerNode"></div>
+    </div>
+</div>

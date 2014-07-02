@@ -1,0 +1,11 @@
+CACHE MANIFEST
+# v0.0.0
+index.html
+dojo.config.js
+dojo/dojo.js
+gennex/themes/gennex.css
+gennex/themes/images/command-sprite-gennex.png
+# Use from network if available
+# NETWORK:
+# Fallback content
+# FALLBACK:
